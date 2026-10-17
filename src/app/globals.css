@@ -1,26 +1,112 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
+  --background: #090909;
+  --surface: #141414;
+  --foreground: #f3f0e8;
+  --gold: #d4af37;
+  --muted: #999999;
+  --border: #292929;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  min-height: 100%;
+  margin: 0;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--gold);
+  color: #090909;
+}
+
+.premium-card {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+}
+
+.gold-button {
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  background: var(--gold);
+  color: #090909;
+  font-weight: 700;
+  transition: opacity 150ms ease;
+}
+
+.gold-button:hover {
+  opacity: 0.85;
+}
+
+.gold-button:disabled,
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.form-input {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #343434;
+  border-radius: 9px;
+  background: #0c0c0c;
+  padding: 0.7rem 0.8rem;
+  color: var(--foreground);
+  font-size: 0.875rem;
+}
+
+.form-input::placeholder {
+  color: #777;
+}
+
+.form-input:focus {
+  border-color: var(--gold);
+  outline: none;
+}
+
+.icon-button {
+  display: inline-flex;
+  min-width: 2rem;
+  min-height: 2rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  color: #888;
+  transition: color 150ms ease, background-color 150ms ease;
+}
+
+.icon-button:hover {
+  background: #202020;
+  color: #e8d58a;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
 }
